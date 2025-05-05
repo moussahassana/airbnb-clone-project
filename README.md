@@ -86,6 +86,19 @@ To ensure safe and reliable interactions with the system, the following security
 
 Security is critical to protect user data (e.g., personal info, passwords), ensure safe financial transactions (e.g., booking payments), and maintain trust and integrity in the platform.
 
+## CI/CD Pipeline
+
+CI/CD (Continuous Integration and Continuous Deployment) pipelines automate the process of testing, building, and deploying code changes. They ensure that every code update is validated through automated tests and safely deployed to production without manual intervention.
+
+This approach improves development speed, reduces errors, and ensures a consistent delivery workflow. It allows developers to detect bugs early, maintain high code quality, and deploy updates reliably.
+
+**Tools used**:  
+- **GitHub Actions**: Automates testing and deployment workflows.
+- **Docker**: Ensures consistent environments across development and production.
+- **CI/CD scripts**: Custom scripts for building, testing, and deploying the application.
+
+These tools collectively help streamline the release process and ensure smooth updates to the project.
+
 
 ## 📌 API Endpoints Overview
 
