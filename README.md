@@ -22,6 +22,53 @@ A scalable backend for managing users, property listings, bookings, payments, an
 - **Docker**: A containerization tool used to package the application and its dependencies for consistent development and deployment.
 - **CI/CD Pipelines**: Automates the process of testing, building, and deploying code changes to ensure faster and safer delivery.
 
+## Database Design
+
+### Entities and Key Fields
+
+- **User**
+  - `id`: Unique identifier
+  - `name`: Full name of the user
+  - `email`: User email address
+  - `password`: Hashed password
+  - `role`: Indicates if the user is a host or guest
+
+- **Property**
+  - `id`: Unique identifier
+  - `title`: Title of the property listing
+  - `description`: Property details
+  - `price_per_night`: Cost per night
+  - `owner_id`: References the User who owns the property
+
+- **Booking**
+  - `id`: Unique identifier
+  - `user_id`: References the User who made the booking
+  - `property_id`: References the booked Property
+  - `check_in`: Start date of the stay
+  - `check_out`: End date of the stay
+
+- **Review**
+  - `id`: Unique identifier
+  - `user_id`: Reviewer (references User)
+  - `property_id`: Reviewed property
+  - `rating`: Score given by the user
+  - `comment`: Optional user feedback
+
+- **Payment**
+  - `id`: Unique identifier
+  - `booking_id`: References the related Booking
+  - `amount`: Payment amount
+  - `status`: Payment status (e.g., completed, pending)
+  - `timestamp`: Time of transaction
+
+### Relationships
+
+- A **User** can create multiple **Properties** (1-to-many).
+- A **User** can make multiple **Bookings** (1-to-many).
+- A **Booking** is linked to one **User** and one **Property** (many-to-1).
+- A **Property** can have multiple **Reviews**, each by a **User** (1-to-many).
+- A **Payment** is made for one **Booking** (1-to-1).
+
 
 ## 📌 API Endpoints Overview
 
