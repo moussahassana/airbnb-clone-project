@@ -1,104 +1,88 @@
 # 🏡 Airbnb Clone - Backend
 
 ## 🚀 Objective
-A scalable backend for managing users, property listings, bookings, payments, and reviews—mimicking core Airbnb functionalities.
-## Feature Breakdown
+A scalable backend system for managing users, property listings, bookings, payments, and reviews—mimicking the core functionalities of Airbnb.
 
-- **User Management**: Allows users to register, log in, and manage their profiles. This feature ensures secure access and personalized user experiences for both guests and hosts.
+---
 
-- **Property Management**: Hosts can create, update, and delete property listings. It enables detailed property information to be displayed for potential guests to view and book.
+## 🧩 Feature Breakdown
 
-- **Booking System**: Users can reserve properties for specific dates, including check-in and check-out tracking. This system manages availability and ensures no double bookings.
+- **User Management**: Allows users to register, log in, and manage their profiles. Ensures secure access and personalized user experiences for both guests and hosts.
 
-- **Payment Integration**: Handles secure payments for bookings and records transaction details. It ensures a smooth financial workflow between guests and hosts.
+- **Property Management**: Enables hosts to create, update, and delete property listings. Guests can view and filter available properties before booking.
 
-- **Review System**: Users can leave reviews and ratings for properties after their stay. This builds trust and improves decision-making for future guests.
+- **Booking System**: Allows users to reserve properties with defined check-in and check-out dates. Prevents double-booking and manages availability.
 
-- **Performance Optimization**: Implements database indexing and caching techniques. These enhancements improve response times and reduce server load, ensuring a better user experience.
+- **Payment Integration**: Handles secure transactions between guests and hosts. Records and tracks payment statuses.
 
-## Technology Stack
+- **Review System**: Users can leave reviews and ratings for properties. Builds trust within the platform through user feedback.
+
+- **Performance Optimization**: Implements indexing and caching to improve database performance and response time.
+
+---
+
+## 🛠️ Technology Stack
 
 - **Django**: A high-level Python web framework used to build the backend and handle HTTP requests.
-- **Django REST Framework (DRF)**: A powerful toolkit for building Web APIs in Django, used to implement RESTful endpoints.
-- **GraphQL**: A query language that enables clients to request only the data they need, used for efficient and flexible data fetching.
-- **PostgreSQL**: A reliable and powerful relational database used to store and manage application data.
-- **Celery**: An asynchronous task queue used to handle background tasks like sending notifications or processing payments.
-- **Redis**: An in-memory data store used for caching and as a message broker for Celery.
-- **Docker**: A containerization tool used to package the application and its dependencies for consistent development and deployment.
-- **CI/CD Pipelines**: Automates the process of testing, building, and deploying code changes to ensure faster and safer delivery.
+- **Django REST Framework**: Toolkit for building RESTful APIs in Django.
+- **GraphQL**: A flexible query language used for efficient data retrieval.
+- **PostgreSQL**: Relational database used to store and manage structured data.
+- **Celery**: Manages background tasks like email notifications and payment processing.
+- **Redis**: In-memory data store used for caching and message brokering.
+- **Docker**: Ensures consistent development and production environments through containerization.
+- **CI/CD Pipelines**: Automates testing, building, and deployment of the application.
 
-## Database Design
+---
+
+## 🗃️ Database Design
 
 ### Entities and Key Fields
 
 - **User**
-  - `id`: Unique identifier
-  - `name`: Full name of the user
-  - `email`: User email address
-  - `password`: Hashed password
-  - `role`: Indicates if the user is a host or guest
+  - `id`, `name`, `email`, `password`, `role`
 
 - **Property**
-  - `id`: Unique identifier
-  - `title`: Title of the property listing
-  - `description`: Property details
-  - `price_per_night`: Cost per night
-  - `owner_id`: References the User who owns the property
+  - `id`, `title`, `description`, `price_per_night`, `owner_id`
 
 - **Booking**
-  - `id`: Unique identifier
-  - `user_id`: References the User who made the booking
-  - `property_id`: References the booked Property
-  - `check_in`: Start date of the stay
-  - `check_out`: End date of the stay
+  - `id`, `user_id`, `property_id`, `check_in`, `check_out`
 
 - **Review**
-  - `id`: Unique identifier
-  - `user_id`: Reviewer (references User)
-  - `property_id`: Reviewed property
-  - `rating`: Score given by the user
-  - `comment`: Optional user feedback
+  - `id`, `user_id`, `property_id`, `rating`, `comment`
 
 - **Payment**
-  - `id`: Unique identifier
-  - `booking_id`: References the related Booking
-  - `amount`: Payment amount
-  - `status`: Payment status (e.g., completed, pending)
-  - `timestamp`: Time of transaction
+  - `id`, `booking_id`, `amount`, `status`, `timestamp`
 
-### Relationships
+### Entity Relationships
 
-- A **User** can create multiple **Properties** (1-to-many).
-- A **User** can make multiple **Bookings** (1-to-many).
-- A **Booking** is linked to one **User** and one **Property** (many-to-1).
-- A **Property** can have multiple **Reviews**, each by a **User** (1-to-many).
-- A **Payment** is made for one **Booking** (1-to-1).
+- A **User** can create multiple **Properties**.
+- A **User** can make multiple **Bookings**.
+- A **Booking** is linked to one **User** and one **Property**.
+- A **Property** can have many **Reviews** from different **Users**.
+- A **Payment** is associated with a single **Booking**.
 
-## API Security
+---
 
-To ensure safe and reliable interactions with the system, the following security measures are implemented:
+## 🔐 API Security
 
-- **Authentication**: Only registered users can access protected endpoints through token-based authentication (e.g., JWT). This protects user accounts and ensures only legitimate users perform actions.
+- **Authentication**: Token-based (e.g., JWT) authentication to secure endpoints and validate user identity.
+- **Authorization**: Role-based access control (RBAC) restricts users to only the actions permitted for their role.
+- **Rate Limiting**: Prevents abuse and DoS attacks by limiting the number of requests per user or IP.
 
-- **Authorization**: Role-based access control (RBAC) is enforced to ensure users can only access data and perform actions appropriate to their roles (e.g., guest vs host). This prevents unauthorized access to sensitive resources.
+Security measures protect sensitive data, secure payments, and maintain trust across the platform.
 
-- **Rate Limiting**: Limits the number of API requests allowed per user/IP within a time window to prevent abuse and denial-of-service (DoS) attacks. It protects system stability and fairness.
+---
 
-Security is critical to protect user data (e.g., personal info, passwords), ensure safe financial transactions (e.g., booking payments), and maintain trust and integrity in the platform.
+## ⚙️ CI/CD Pipeline
 
-## CI/CD Pipeline
+CI/CD (Continuous Integration and Continuous Deployment) pipelines automate testing, building, and deploying code changes. They enable developers to detect bugs early, maintain code quality, and deploy reliably with minimal downtime.
 
-CI/CD (Continuous Integration and Continuous Deployment) pipelines automate the process of testing, building, and deploying code changes. They ensure that every code update is validated through automated tests and safely deployed to production without manual intervention.
-
-This approach improves development speed, reduces errors, and ensures a consistent delivery workflow. It allows developers to detect bugs early, maintain high code quality, and deploy updates reliably.
-
-**Tools used**:  
+**Tools Used**:
 - **GitHub Actions**: Automates testing and deployment workflows.
-- **Docker**: Ensures consistent environments across development and production.
-- **CI/CD scripts**: Custom scripts for building, testing, and deploying the application.
+- **Docker**: Provides consistent environments across stages.
+- **Custom CI/CD Scripts**: Handle build, test, and deployment processes.
 
-These tools collectively help streamline the release process and ensure smooth updates to the project.
-
+---
 
 ## 📌 API Endpoints Overview
 
@@ -133,30 +117,25 @@ These tools collectively help streamline the release process and ensure smooth u
 - `PUT /reviews/{id}/`
 - `DELETE /reviews/{id}/`
 
+---
+
 ## 📚 Documentation
-- REST API: OpenAPI-compliant Swagger docs
-- GraphQL API: Flexible query interface for advanced clients
 
-## Team Roles
+- **REST API**: Available through OpenAPI-compliant Swagger documentation.
+- **GraphQL API**: Flexible querying interface for clients needing customized data responses.
 
-- **Backend Developer**: Implements the server-side logic, builds API endpoints, and ensures robust interaction between the frontend and database.
+---
 
-- **Business Analyst (BA)**: Bridges the gap between business needs and technical teams by translating customer requirements into clear specifications and workflows.
+## 👥 Team Roles
 
-- **Product Owner (PO)**: Owns the product vision and backlog, ensuring that the delivered product meets customer needs and aligns with business strategy.
-
-- **Project Manager (PM)**: Plans, organizes, and monitors the project to ensure timely delivery within budget while coordinating team efforts.
-
-- **UI/UX Designer**: Designs intuitive interfaces and user journeys to maximize usability and enhance overall user experience.
-
-- **Database Administrator (DBA)**: Designs, maintains, and optimizes the database to ensure data integrity, performance, and availability.
-
-- **Software Architect**: Defines the high-level structure of the software, chooses tech stacks, and enforces coding standards for scalability and quality.
-
-- **Software Developer**: Writes, tests, and maintains the codebase, implementing application features and solving technical issues.
-
-- **QA Engineer**: Tests the application to ensure it meets quality standards, performs well in production, and aligns with user requirements.
-
-- **Test Automation Engineer**: Builds and maintains automated test scripts to speed up testing and improve coverage and reliability.
-
-- **DevOps Engineer**: Establishes CI/CD pipelines, manages deployment, monitors system performance, and ensures scalability and reliability of the production environment.
+- **Backend Developer**: Builds backend logic and APIs for interacting with users, properties, and bookings.
+- **Business Analyst (BA)**: Translates customer needs into technical requirements and workflows.
+- **Product Owner (PO)**: Defines product vision and priorities to align with user and business needs.
+- **Project Manager (PM)**: Oversees planning, coordination, and on-time delivery of the project.
+- **UI/UX Designer**: Designs user flows and interfaces for an intuitive and engaging experience.
+- **Database Administrator (DBA)**: Manages the database structure, performance, and optimization.
+- **Software Architect**: Designs the system architecture and chooses technologies to ensure scalability and maintainability.
+- **Software Developer**: Writes and maintains application code to implement core functionality.
+- **QA Engineer**: Tests application features to ensure functionality, performance, and reliability.
+- **Test Automation Engineer**: Develops automated test scripts to speed up and improve testing accuracy.
+- **DevOps Engineer**: Manages infrastructure, CI/CD pipelines, and deployment to production environments.
