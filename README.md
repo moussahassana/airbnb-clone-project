@@ -2,14 +2,19 @@
 
 ## 🚀 Objective
 A scalable backend for managing users, property listings, bookings, payments, and reviews—mimicking core Airbnb functionalities.
+## Feature Breakdown
 
-## 🏆 Key Features
-- **User Management**: Registration, authentication, profile handling.
-- **Property Listings**: Create, update, retrieve, and delete listings.
-- **Booking System**: Book properties with check-in/check-out tracking.
-- **Payment Integration**: Secure transaction handling.
-- **Review System**: User reviews and ratings for properties.
-- **Optimized Performance**: Indexing and caching for speed.
+- **User Management**: Allows users to register, log in, and manage their profiles. This feature ensures secure access and personalized user experiences for both guests and hosts.
+
+- **Property Management**: Hosts can create, update, and delete property listings. It enables detailed property information to be displayed for potential guests to view and book.
+
+- **Booking System**: Users can reserve properties for specific dates, including check-in and check-out tracking. This system manages availability and ensures no double bookings.
+
+- **Payment Integration**: Handles secure payments for bookings and records transaction details. It ensures a smooth financial workflow between guests and hosts.
+
+- **Review System**: Users can leave reviews and ratings for properties after their stay. This builds trust and improves decision-making for future guests.
+
+- **Performance Optimization**: Implements database indexing and caching techniques. These enhancements improve response times and reduce server load, ensuring a better user experience.
 
 ## Technology Stack
 
