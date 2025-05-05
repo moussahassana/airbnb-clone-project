@@ -11,11 +11,17 @@ A scalable backend for managing users, property listings, bookings, payments, an
 - **Review System**: User reviews and ratings for properties.
 - **Optimized Performance**: Indexing and caching for speed.
 
-## ⚙️ Technology Stack
-- **Backend**: Django, Django REST Framework, GraphQL
-- **Database**: PostgreSQL
-- **Async Tasks**: Celery + Redis
-- **Deployment**: Docker, CI/CD pipelines
+## Technology Stack
+
+- **Django**: A high-level Python web framework used to build the backend and handle HTTP requests.
+- **Django REST Framework (DRF)**: A powerful toolkit for building Web APIs in Django, used to implement RESTful endpoints.
+- **GraphQL**: A query language that enables clients to request only the data they need, used for efficient and flexible data fetching.
+- **PostgreSQL**: A reliable and powerful relational database used to store and manage application data.
+- **Celery**: An asynchronous task queue used to handle background tasks like sending notifications or processing payments.
+- **Redis**: An in-memory data store used for caching and as a message broker for Celery.
+- **Docker**: A containerization tool used to package the application and its dependencies for consistent development and deployment.
+- **CI/CD Pipelines**: Automates the process of testing, building, and deploying code changes to ensure faster and safer delivery.
+
 
 ## 📌 API Endpoints Overview
 
