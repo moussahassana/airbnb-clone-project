@@ -54,7 +54,7 @@ A scalable backend for managing users, property listings, bookings, payments, an
 - REST API: OpenAPI-compliant Swagger docs
 - GraphQL API: Flexible query interface for advanced clients
 
-## 👥 Team Roles
+## Team Roles
 
 - **Backend Developer**: Implements the server-side logic, builds API endpoints, and ensures robust interaction between the frontend and database.
 
