@@ -74,6 +74,18 @@ A scalable backend for managing users, property listings, bookings, payments, an
 - A **Property** can have multiple **Reviews**, each by a **User** (1-to-many).
 - A **Payment** is made for one **Booking** (1-to-1).
 
+## API Security
+
+To ensure safe and reliable interactions with the system, the following security measures are implemented:
+
+- **Authentication**: Only registered users can access protected endpoints through token-based authentication (e.g., JWT). This protects user accounts and ensures only legitimate users perform actions.
+
+- **Authorization**: Role-based access control (RBAC) is enforced to ensure users can only access data and perform actions appropriate to their roles (e.g., guest vs host). This prevents unauthorized access to sensitive resources.
+
+- **Rate Limiting**: Limits the number of API requests allowed per user/IP within a time window to prevent abuse and denial-of-service (DoS) attacks. It protects system stability and fairness.
+
+Security is critical to protect user data (e.g., personal info, passwords), ensure safe financial transactions (e.g., booking payments), and maintain trust and integrity in the platform.
+
 
 ## 📌 API Endpoints Overview
 
