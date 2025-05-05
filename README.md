@@ -11,7 +11,7 @@ A scalable backend for managing users, property listings, bookings, payments, an
 - **Review System**: User reviews and ratings for properties.
 - **Optimized Performance**: Indexing and caching for speed.
 
-## ⚙️ Tech Stack
+## ⚙️ Technology Stack
 - **Backend**: Django, Django REST Framework, GraphQL
 - **Database**: PostgreSQL
 - **Async Tasks**: Celery + Redis
